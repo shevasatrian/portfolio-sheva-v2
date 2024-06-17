@@ -31,7 +31,7 @@ export default function Footer() {
   const listSosmed = {
     data: [
       {
-        image: '/Instagram.png',
+        image: '/instagram.png',
         link: 'https://www.instagram.com/sheva_str/',
       },
       {
@@ -39,7 +39,7 @@ export default function Footer() {
         link: 'https://www.linkedin.com/in/sheva-satrian-999779256/',
       },
       {
-        image: '/YouTube.png',
+        image: '/youtube.png',
         link: 'https://www.youtube.com/channel/UCmbJasu7iQYcfjlnz_PrWoQ',
       },
     ]
