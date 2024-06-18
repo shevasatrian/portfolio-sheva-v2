@@ -9,7 +9,7 @@ import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 const LayoutComponent = dynamic(() => import("@/layout"))
-const PDF_FILE_URL = 'http://localhost:3000/cv.pdf'
+const PDF_FILE_URL = 'https://portfolio-sheva.vercel.app/cv.pdf'
 
 export default function Main({ children }) {
   const downloadFileAtURL = (url) => {
