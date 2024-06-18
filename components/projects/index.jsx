@@ -30,7 +30,7 @@ export default function Projects() {
         link: 'https://notebook-planner-three.vercel.app/login',
       },
       { id: 5, 
-        image: '/project-1.png', 
+        image: '/project-5.png', 
         title: 'My Current Portfolio', 
         link: '#',
       },
