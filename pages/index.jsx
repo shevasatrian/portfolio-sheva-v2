@@ -6,10 +6,12 @@ import Skill from '@/components/skill'
 import Projects from '@/components/projects'
 import Contact from '@/components/contact'
 import Link from 'next/link'
+import { motion } from 'framer-motion';
+import { fadeIn } from '../pages/variants';
 
 const inter = Inter({ subsets: ['latin'] })
 const LayoutComponent = dynamic(() => import("@/layout"))
-const PDF_FILE_URL = 'https://portfolio-sheva.vercel.app/cv.pdf'
+const PDF_FILE_URL = 'https://shevasatrian.vercel.app/cv.pdf'
 
 export default function Main({ children }) {
   const downloadFileAtURL = (url) => {
@@ -45,13 +47,18 @@ export default function Main({ children }) {
   return (
     <>
       <LayoutComponent>
-        <section id='home' className='pt-24'>
+        <motion.section 
+        variants={fadeIn}
+        initial="hidden"
+        animate="show"
+        id='home' 
+        className='pt-24'>
           <div className='container mx-auto'>
             <div className='flex flex-wrap'>
               <div className='w-full lg:py-20 px-4 lg:w-1/2'>
                 <h2 className='text-42px font-bold py-2'>Hello I'm</h2>
                 <h1 className='text-7xl font-bold gradient-text text-transparent bg-clip-text'>SHEVA SATRIAN</h1>
-                <h2 className='text-42px font-bold py-2'>And I'm a Frontend Enthusiast</h2>
+                <h2 className='text-3xl font-bold py-2'>And I'm a Aspiring Full-Stack Developer and Tech Enthusiast</h2>
                 <p className='opacity-70 pt-8 text-justify'>Welcome to my personal website! Here, you'll find a comprehensive overview of my experiences and skills. The "About Me" section provides a brief glimpse into my background and personal interests. Meanwhile, the "Skills" section lists various abilities I've developed throughout my career. My diverse portfolio of projects can be explored in the "Projects" section, offering in-depth insights into my work. If you're interested in getting in touch or collaborating, feel free to reach out through the "Contact" section. Thank you for visiting this page, and I hope you enjoy exploring my portfolio!</p>
               </div>
               <div className="w-full px-4 lg:w-1/2">
@@ -94,7 +101,7 @@ export default function Main({ children }) {
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
         <About />
         <Skill />
         <Projects />

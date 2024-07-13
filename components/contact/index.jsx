@@ -1,11 +1,40 @@
-import React, { Component, useState } from "react"
+import React, { Component, useState, useEffect } from "react"
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from 'framer-motion';
+import { fadeIn } from '../../pages/variants';
 
 export default function Contact() {
+
+  const [hasPlayedAnimation, setHasPlayedAnimation] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasPlayedAnimation) {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          const top = contactSection.getBoundingClientRect().top;
+          if (top < window.innerHeight * 0.5) {
+            setHasPlayedAnimation(true);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasPlayedAnimation]);
+
   return (
     <>
-      <section id="contact" className="lg:pt-20 lg:pb-[24rem] pb-[16rem] mb-16 relative">
+      <motion.section 
+      variants={fadeIn}
+      initial="hidden"
+      animate={hasPlayedAnimation ? "show" : "hidden"}
+      id="contact" 
+      className="lg:pt-20 lg:pb-[24rem] pb-[16rem] mb-16 relative">
         <div className="container mx-auto">
           <div className="text-center w-full pb-16">
             <h1 className="text-[48px] text-bluefont font-semibold"><span className="text-white">Contact </span>Me!</h1>
@@ -49,7 +78,7 @@ export default function Contact() {
           <div className="bg-robot mt-[80rem] lg:mt-[36rem]">
           </div>
         </div>
-      </section>
+      </motion.section>
     </>
   )
 }

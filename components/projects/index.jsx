@@ -4,8 +4,31 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { motion } from 'framer-motion';
+import { fadeIn } from '../../pages/variants';
 
 export default function Projects() {
+
+  const [hasPlayedAnimation, setHasPlayedAnimation] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!hasPlayedAnimation) {
+        const projectSection = document.getElementById('project');
+        if (projectSection) {
+          const top = projectSection.getBoundingClientRect().top;
+          if (top < window.innerHeight * 0.5) {
+            setHasPlayedAnimation(true);
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [hasPlayedAnimation]);
 
   const listProjects = {
     data: [
@@ -75,7 +98,12 @@ export default function Projects() {
   };
 
   return (
-    <section id="project" className="relative my-16">
+    <motion.section 
+      variants={fadeIn}
+      initial="hidden"
+      animate={hasPlayedAnimation ? "show" : "hidden"}
+      id="project" 
+      className="relative my-16">
       <div className="absolute inset-0 z-[-1] m-auto h-4/6 w-10/12">
       <Image
         src="/background-project.png"  // Sesuaikan dengan path gambar Anda
@@ -107,7 +135,7 @@ export default function Projects() {
           ))}
           </Slider>
       </div>
-    </section>
+    </motion.section>
   )
 
 }
