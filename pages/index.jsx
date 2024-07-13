@@ -7,7 +7,7 @@ import Projects from '@/components/projects'
 import Contact from '@/components/contact'
 import Link from 'next/link'
 import { motion } from 'framer-motion';
-import { fadeIn } from '../pages/variants';
+import { fadeIn } from '../variants';
 
 const inter = Inter({ subsets: ['latin'] })
 const LayoutComponent = dynamic(() => import("@/layout"))

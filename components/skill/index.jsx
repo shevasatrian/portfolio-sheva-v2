@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { withRouter } from "next/router";
 import { motion } from 'framer-motion';
-import { fadeIn } from '../../pages/variants';
+import { fadeIn } from '../../variants';
 import { useEffect, useState } from 'react';
 
 export default function Skill() {

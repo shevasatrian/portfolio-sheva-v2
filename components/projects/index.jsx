@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { motion } from 'framer-motion';
-import { fadeIn } from '../../pages/variants';
+import { fadeIn } from '../../variants';
 
 export default function Projects() {
 

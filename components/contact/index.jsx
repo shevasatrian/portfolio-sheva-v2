@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from "react"
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from 'framer-motion';
-import { fadeIn } from '../../pages/variants';
+import { fadeIn } from '../../variants';
 
 export default function Contact() {
 

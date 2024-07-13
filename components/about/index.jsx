@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Image from "next/image";
 import { motion } from 'framer-motion';
-import { fadeIn } from '../../pages/variants';
+import { fadeIn } from '../../variants';
 
 export default function About() {
   const [hasPlayedAnimation, setHasPlayedAnimation] = useState(false);
